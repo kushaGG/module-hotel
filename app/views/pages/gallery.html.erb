@@ -1,2 +1,5 @@
-<h1>Pages#gallery</h1>
-<p>Find me in app/views/pages/gallery.html.erb</p>
+<% @hotels.each do |p| %>
+  <%  p.photos.each do |p| %>
+    <%= image_tag(p.url) %>
+  <% end %>
+<% end %>

@@ -1,20 +1,36 @@
-<div class="row">
-  <div class="col-1">
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-1">
 
-  </div>
-  <div class="col-4">
-    <% @hotels.each do |hotel| %>
-      <h1><%= hotel.title %></h1>
-      <h3><%= hotel.description %> </h3>
-      <% hotel.photos.each do |photo| %>
-        <%= image_tag(photo.url, size:"300x300") %> <br>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="col-4">
-    @
-  </div>
-  <div class="col-3">
+      </div>
+      <div class="col-5">
+        <% @hotels.each do |hotel| %>
+          <h1><%= hotel.title %></h1>
+          <h3><%= hotel.description %> </h3>
+          <%= image_tag(hotel.photos[0].url, size: "500x300")%>	<br> <br>
 
+          <p class="button"><%= link_to "Show Contact", contacts_path, remote: true %></p>
+          <div id="contacts"></div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body" >
+            <% hotel.rooms.each do |room| %>
+              <h3><strong><%= room.title %></strong></h3><br>
+              <strong>Description:</strong><br><%= room.description %> <br>
+              <% room.photos.each do |photo| %>
+                <%= image_tag(photo.url, size:"400x400") %> <br>
+              <% end %>
+              <br> <hr> <br>
+            <% end %>
+          </div>
+
+        </div>
+
+           </div>
+          <hr>
+        <% end %>
+    </div>
   </div>
 </div>
