@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-1">
+
+  </div>
+  <div class="col-4">
+    <% @hotels.each do |hotel| %>
+      <h1><%= hotel.title %></h1>
+      <h3><%= hotel.description %> </h3>
+      <% hotel.photos.each do |photo| %>
+        <%= image_tag(photo.url, size:"300x300") %> <br>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-4">
+    @
+  </div>
+  <div class="col-3">
+
+  </div>
+</div>
