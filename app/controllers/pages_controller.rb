@@ -7,6 +7,9 @@ class PagesController < ApplicationController
 
   def gallery
       @hotels = Hotel.all
+      respond_to do |format|
+       format.js
+     end
   end
 
   def contacts
